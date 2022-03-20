@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+:root{
+
+    --blue: #566CD6;
+    --blueSencondary: #7b8ff0;
+    --text:#40415E;
+    --white:#FFFFFF;
+    --grad: linear-gradient(#F2F4FF,#FBFCFF);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+
+    font-family: 'Lato', sans-serif;
+
+  
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

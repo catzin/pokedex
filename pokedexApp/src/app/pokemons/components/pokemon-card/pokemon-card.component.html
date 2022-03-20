@@ -1,0 +1,18 @@
+
+<div class="card">
+    <h2 class="card-title">{{cardPokemon.name | titlecase}}</h2>
+    <h3 class="id-pokemon">{{cardPokemon.id}}</h3>
+    
+    <div class="pokemon-image">
+        <img [src]="cardPokemon.sprites.other?.dream_world?.front_default">
+    </div>
+    
+
+    <div class="buttons-container">
+        <button class="power"
+                 *ngFor="let i of cardPokemon.types" 
+                 [ngClass]="{'grass':i.type.name == 'grass','poison': i.type.name == 'poison','fire': i.type.name == 'fire','fly': i.type.name == 'flying','bug':i.type.name == 'bug','water': i.type.name == 'water'}"
+        >{{i.type.name | titlecase}}</button>
+        
+    </div>
+</div>

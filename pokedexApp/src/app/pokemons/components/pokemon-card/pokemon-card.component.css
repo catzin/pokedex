@@ -1,0 +1,98 @@
+.card{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin: 1rem;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(85,102,205,0.15); 
+    box-shadow: 5px 5px 15px 5px rgba(85,102,205,0.15);
+
+
+}
+
+.pokemon-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem;
+
+    width: 12rem;
+    height: 12rem;
+}
+
+.card-title{
+    line-height: 2rem;
+}
+
+.card img{
+
+    width: 12rem;
+    height: 12rem;
+    padding: 1rem;
+
+
+
+
+}
+
+.card img:hover{
+    -webkit-transform: scale(1.3);
+	transform: scale(1.3);
+    transition: .4s;
+}
+.id-pokemon{
+    font-weight: 100;
+}
+
+
+.buttons-container{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.buttons-container button{
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+
+.grass{
+    background-color: rgb(56, 160, 56);
+    color: var(--white);
+}
+
+.poison{
+    background-color: rgb(160, 64, 160);
+    color: var(--white);
+}
+
+.fire{
+    background-color: orange;
+    color: var(--white);
+
+}
+
+.fly{
+    background-color: var(--blueSencondary);
+    color: var(--white);
+
+}
+
+.bug{
+
+    background-color: rgb(186, 68, 68);
+    color: var(--white);
+
+}
+
+.water{
+    background-color: rgb(56, 191, 232);
+    color: var(--white);
+}

@@ -1,0 +1,37 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-profile img{
+    width: 10rem;
+    height: 10rem;
+    
+}
+
+.image-profile{
+ padding: 1.5rem;
+}
+
+.info-profile{
+    text-align: center;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.user-name{
+    color: var(--white);
+    padding: 0.5rem;
+}
+
+
+.level{
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+.legend{
+    color: #F8F8FF;
+}
