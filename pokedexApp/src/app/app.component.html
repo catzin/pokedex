@@ -1,9 +1,13 @@
-<div class="app">
+<div class="app" [ngClass]="{'app-mobile': isMobile == true}">
 
-  <div class="side">
+  <div class="side" *ngIf="!isMobile">
     <app-sidenav></app-sidenav>
 
   </div>
+
+  <nav class="navbar" *ngIf="isMobile">
+    <app-navbar></app-navbar>
+  </nav>
 
   <div class="content">
 
@@ -13,7 +17,7 @@
 
     </div>
 
-    <div class="listado">
+    <div class="listado" [ngClass]="{'listado-desktop': isMobile != true}">
       <app-pokemon-card *ngFor="let i of pokemonData" [cardPokemon]="i"></app-pokemon-card>
     
     </div>
