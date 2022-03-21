@@ -1,0 +1,42 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: var(--blue);
+    width: 100vw;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.btn-log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+}
+
+.btn-log{
+    padding: 0.7rem;
+    border:none;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--blueSencondary);
+    border-radius: 10px;
+}
+
+.btn-log:hover{
+    border: 1px solid var(--white);
+}
+
+.pokemon-brand{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: linear-gradient(#F2F4FF, #FBFCFF);
+}
+
+.pokemon-brand img{
+    width: 130px;
+
+}
