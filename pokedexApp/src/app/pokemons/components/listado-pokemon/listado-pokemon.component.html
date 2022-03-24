@@ -1,0 +1,3 @@
+<div class="listado" [ngClass]="{'listado-mobile': isMobile == true}">
+    <app-pokemon-card *ngFor="let i of pokemonData" [cardPokemon]="i"></app-pokemon-card>
+</div>

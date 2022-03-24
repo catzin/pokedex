@@ -2,7 +2,8 @@
     background: var(--blue);
     top: 0;
     width: 20rem;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    height: 100vh;
 }
 
 .hidden{

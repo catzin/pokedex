@@ -1,31 +1,20 @@
 <div class="app" [ngClass]="{'app-mobile': isMobile == true}">
 
-  <div class="side" *ngIf="!isMobile">
-    <app-sidenav></app-sidenav>
-
-  </div>
-
-  <nav class="navbar" *ngIf="isMobile">
-    <app-navbar></app-navbar>
-  </nav>
-
-  <div class="content">
-
-    <div class="search-bar">
-     <input type="text" placeholder="Search">
-     <a href=""> </a>
-
+    <div class="side">
+         <app-sidenav *ngIf="isDesktop"></app-sidenav>
+         <app-navbar *ngIf="isMobile"></app-navbar>
     </div>
 
-    <div class="listado" [ngClass]="{'listado-desktop': isMobile != true}">
-      <app-pokemon-card *ngFor="let i of pokemonData" [cardPokemon]="i"></app-pokemon-card>
-    
+  
+
+    <div class="content">
+
+     <div class="search">
+          <input type="text" placeholder="Search" [ngClass]="{'search-mobile': isMobile == true}">
+      </div>
+
+         <router-outlet></router-outlet>
     </div>
-
-    
-
-  </div>
-
-
+   
 
 </div>
