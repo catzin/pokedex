@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/interfaces/pokemon.interface';
+import { pokeResult } from 'src/app/interfaces/pokeResult.interface'
 import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
@@ -11,16 +12,20 @@ import { PokemonService } from '../../services/pokemon.service';
 export class ListadoPokemonComponent implements OnInit {
 
   pokemonData : Pokemon[] = [];
+  pokeResult !: pokeResult;
   isMobile : boolean = false;
   isDesktop : boolean = true;
+  limit : number = 6;
+  offset : number = 0;
+  page  : number = 0;
+
 
   constructor(private pokemons: PokemonService, private breakPointObserver:BreakpointObserver) { }
 
   ngOnInit(): void {
 
-    this.pokemons.getAllPokemons();
-    this.pokemonData = this.pokemons.get();
-
+    this.next();
+    //this.pokemonData = this.pokemons.get();
     this.breakPointObserver.observe(['(min-width: 768px)'])
       .subscribe((state : BreakpointState) =>{
 
@@ -28,6 +33,7 @@ export class ListadoPokemonComponent implements OnInit {
          
           this.isMobile = false;
           this.isDesktop = true;
+       
          
         }
         else{
@@ -39,5 +45,40 @@ export class ListadoPokemonComponent implements OnInit {
 
       });
   }
+
+
+  next():void{
+  
+    this.pokemonData = [];
+    this.pokemons.getPokemons(this.limit,this.offset).subscribe(r => {
+      r.results.forEach( (p , i) => {
+        this.pokemons.getPokemon(p.url).subscribe( rp =>  this.pokemonData.push(rp) );
+      })
+    } );
+    this.offset = this.offset + 6;
+    this.page++;
+
+  }
+
+  prev():void{
+
+    if(this.page > 1){
+
+      this.pokemonData = [];
+      this.offset = this.offset - 6;
+
+      this.pokemons.getPokemons(this.limit,this.offset).subscribe(r => {
+        r.results.forEach( (p , i) => {
+          this.pokemons.getPokemon(p.url).subscribe( rp =>  this.pokemonData.push(rp) );
+        })
+      } );
+
+      this.page--;
+
+    }
+    
+  }
+
+
 
 }

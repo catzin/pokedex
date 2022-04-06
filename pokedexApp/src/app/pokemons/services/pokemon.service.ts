@@ -3,32 +3,30 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, mapTo } from 'rxjs/operators';
 import { Pokemon } from 'src/app/interfaces/pokemon.interface';
+import { pokeResult } from 'src/app/interfaces/pokeResult.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
  
-  url : string = 'https://pokeapi.co/api/v2/pokemon/';
-  dataPokemon : Pokemon[] = [];
+  url : string = 'https://pokeapi.co/api/v2/pokemon';
+ 
 
   constructor(private http: HttpClient) { }
 
-  getPokemon(idPokemon : string):Observable<Pokemon>{
-    return this.http.get<Pokemon>(this.url+idPokemon);
+  getPokemon(urlPokemon : string):Observable<Pokemon>{
+    return this.http.get<Pokemon>(urlPokemon);
    
   }
 
-  getAllPokemons():any{
+  getPokemons(limit : number , end : number):Observable<pokeResult>{
 
-    for(let i = 0; i < 20; i++){
-      this.getPokemon((i+1).toString()).subscribe( pk => this.dataPokemon.push(pk) )
-    }
+    return this.http.get<pokeResult>(this.url+`?limit=${limit}&offset=${end}`);
+
   }
 
-  get(){
-    return this.dataPokemon;
-  }
+
 
   
 

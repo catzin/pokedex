@@ -1,16 +1,42 @@
 
 .listado{
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: var(--grad);
+  margin-top: 10px;
+  margin-bottom: 0;
+
+
+}
+.buttons-container{
+
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+
+
+}
+
+.buttons-container button{
+  border: none;
+  background-color: var(--grad);
+}
+
+.number{
+  background-color: var(--blue);
+  padding: .6rem;
+  border-radius: 50%;
+  color: white;
 }
 
 .listado-mobile{
 
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  padding: 1rem;
+  padding: 0;
+  margin: 0;
   
   
 }
